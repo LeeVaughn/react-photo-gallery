@@ -8,7 +8,7 @@ import {
 import Nav from './components/Nav';
 import SearchForm from './components/SearchForm';
 import PhotoContainer from './components/PhotoContainer';
-import NotFound from '/components./NotFound';
+import NotFound from './components/NotFound';
 import './App.css';
 
 class App extends Component {
@@ -16,11 +16,12 @@ class App extends Component {
     return (
       <div className="container">
         <BrowserRouter>
-          <Nav />
           <Route component={ SearchForm } />
+          <Nav />
 
           <Switch>
-            <Route exact path="/" render={ () => <Redirect to="puppies" /> } />
+            <Route exact path="/" render={ () => <Redirect to="/puppies" /> } />
+            <Route path={ ["/puppies", "/kittens", "/surfing"] } render={ ({ match }) => <PhotoContainer data={ match.params.query } /> } />
             <Route path="/search/:query" render={ ({ match }) => <PhotoContainer data={ match.params.query } /> } />
             <Route component={ NotFound } />
           </Switch>

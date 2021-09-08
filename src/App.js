@@ -20,8 +20,7 @@ class App extends Component {
           <Nav />
 
           <Switch>
-            <Route exact path="/" render={ () => <Redirect to="/puppies" /> } />
-            <Route path={ ["/puppies", "/kittens", "/surfing"] } render={ ({ match }) => <PhotoContainer data={ match.params.query } /> } />
+            <Route exact path="/" render={ () => <Redirect to="/search/dogs%20surfing" /> } />
             <Route path="/search/:query" render={ ({ match }) => <PhotoContainer data={ match.params.query } /> } />
             <Route component={ NotFound } />
           </Switch>

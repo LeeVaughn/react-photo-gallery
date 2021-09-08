@@ -14,6 +14,13 @@ class PhotoContainer extends Component {
     this.performSearch(this.props.data);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.data !== this.props.data) {
+      console.log("updating")
+    this.performSearch(this.props.data);
+    }
+  }
+
   performSearch(query) {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&safe_search=1&in_gallery=&per_page=24&format=json&nojsoncallback=1`)
     .then(response => {

@@ -1,3 +1,5 @@
+import NoResults from './NoResults';
+
 function Photos(props) {
   console.log("props", props)
   const results = props.results;
@@ -11,6 +13,8 @@ function Photos(props) {
         </li>
       );
     });
+  } else {
+    pics = <NoResults />
   }
 
   return (

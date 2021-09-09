@@ -7,6 +7,7 @@ class PhotoContainer extends Component {
 
   state = {
     results: [],
+    title: "",
     loading: true
   }
 
@@ -26,6 +27,7 @@ class PhotoContainer extends Component {
     .then(response => {
       this.setState({
         results: response.data.photos.photo,
+        title: query,
         loading: false
       })
     })
@@ -42,7 +44,7 @@ class PhotoContainer extends Component {
   render() {
     return (
       <div className="photo-container">
-        <h2>Results</h2>
+        <h2>Images for { this.state.title }</h2>
         <ul>
           {
             (this.state.loading) ? <p>Loading...</p> : <Photos results={ this.state.results } />

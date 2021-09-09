@@ -1,8 +1,8 @@
 function NoResults() {
   return (
-    <div>
-      <h2>Sorry! There were no results for that search</h2>
-    </div>
+    <li className="not-found">
+      <h3>Sorry! There were no results for that search</h3>
+    </li>
   )
 }
 

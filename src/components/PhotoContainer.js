@@ -32,6 +32,11 @@ class PhotoContainer extends Component {
     .catch(error => {
       console.log("Error fetching data", error)
     })
+
+    // resets loading indicator
+    this.setState({
+      loading: true
+    })
   }
 
   render() {
